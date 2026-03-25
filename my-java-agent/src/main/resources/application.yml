@@ -1,0 +1,21 @@
+spring:
+  ai:
+    vectorstore:
+      milvus:
+        client:
+          host: "localhost" # 你的 Milvus 服务地址
+          port: 19530       # Milvus 默认端口
+        embedding:
+          dimensions: 1536  # 对于不同的大模型，如通义千问等，配置所用 Embedding 模型的维度
+        collection-name: "fitness_knowledge" # 集合名称，等同于 DB-GPT 的 space
+        index-type: "HNSW"  # 索引类型
+        metric-type: "COSINE" # 距离测算类型
+    alibaba:
+      ai:
+        api-key: "YOUR_DASHSCOPE_API_KEY" # 替换为你的真实通义千问大模型API KEY
+
+  data:
+    redis:
+      host: "localhost"
+      port: 6379 
+      # 供短记忆管理的 Redis 配置
